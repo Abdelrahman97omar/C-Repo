@@ -4,7 +4,7 @@ class Test
 {
 public:
     int My_Var;
-    int* ptr; //not pointer to memory of object, but just memory of 4 bytes
+    int* ptr; 
 /****************Property functions *****************/
 void SetValue(int l)
 {
@@ -41,13 +41,33 @@ int Calculate()
 
 int main()
 {
-    int x;
-    cin>>x;
-    Test first(x);
+int x;
+cout<<"enter value"<<endl;
+cin>>x;
+Test first(x);
 
-    cout<<first.Calculate()<<endl;
-    first.ptr[3]=8;
+Test Second_copy_of_first(first);
+
+cout<<first.My_Var<<endl;
+cout<<Second_copy_of_first.My_Var<<endl;
+
+    first.ptr[0]=3;
+    first.ptr[1]=5;
+    first.ptr[2]=4;
+    first.ptr[3]=7;
+    Second_copy_of_first.ptr[0]=43;
+    Second_copy_of_first.ptr[1]=32;
+    Second_copy_of_first.ptr[2]=22;
+    Second_copy_of_first.ptr[3]=18;
+
+    cout<<first.ptr[0]<<endl;
+    cout<<first.ptr[1]<<endl;
+    cout<<first.ptr[2]<<endl;
     cout<<first.ptr[3]<<endl;
-    
+    cout<<Second_copy_of_first.ptr[0]<<endl;
+    cout<<Second_copy_of_first.ptr[1]<<endl;
+    cout<<Second_copy_of_first.ptr[2]<<endl;
+    cout<<Second_copy_of_first.ptr[3]<<endl;
+
     return 0;
 }
