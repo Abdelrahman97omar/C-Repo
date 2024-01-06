@@ -1,6 +1,6 @@
 #include<iostream>
 using namespace std;
-
+/******I should use scope resolution for complex function instead of inline function *******/
 class rectangle{
     public:
     int length;

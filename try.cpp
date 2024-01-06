@@ -28,10 +28,10 @@ int main()
     //     cout<<p[i]<<endl;
     // }
     
-    char arr[]="abdo";
+    // char arr[]="abdo";
 
-    cout<<arr;
-    
+    // cout<<arr;
+
     
     
     return 0;
