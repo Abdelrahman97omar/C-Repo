@@ -6,23 +6,23 @@ class rectangle{
     int length;
     int width;
     
-    int parameter();
+    int parameter(int s);
 
 };
 
 
-int rectangle::parameter()
+int rectangle::parameter(int s)
 {
-    return length*width;
+    return length*width*s;
 }
 
 int main()
 {
-    int x;
+    int x,y=3;
     rectangle a;
     a.length=5;
     a.width=6;
-    x=a.parameter();
+    x=a.parameter(y);
     cout<<x<<endl;
     return 0;
 }
