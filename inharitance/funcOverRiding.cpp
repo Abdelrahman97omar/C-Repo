@@ -89,4 +89,7 @@ int main()
 }
 /*in function overriding, if i defined the same function with the same 
 signture(name of function and its parameters) and i call it by object in the 
-drived class, it will only call the function in the drived class*/
+drived class, it will only call the function in the drived class
+--This is totally different from function overloading(different functions with the same
+name but different number of parameters or parameters data types)
+*/
