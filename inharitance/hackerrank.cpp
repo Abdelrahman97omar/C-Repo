@@ -9,29 +9,30 @@ using namespace std;
  */
 
 string timeConversion(string s) {
-    int h1,h2;
+    char h1,h2;
     int carry=0;
     h1=s[0];
     h2=s[1];
+
     if(s[8]=='P')
     {   
-        if((char)(h2+2)>'9')  
+        if((h2+'2')>'9')  
         {
-            h2+=2;
-            h2=h2-10;
+            cout<<"hiiii"<<endl;
+            h2+='2';
+            h2=h2-'9';
+            h2=h2-'1';
             h1='2';  
-        cout<<"h1 is"<<endl;
         }   
         else
         {
-            h1+=1;
-            h2+=2;
+            h1+='1';
+            h2+='2';
             
         } 
     }
-s[0]=(char)h1;
-s[1]=(char)h2;
-cout<<s[0]<<"  "<<s[1]<<endl;
+s[0]=h1;
+s[1]=h2;
 return s;
 }
 

@@ -48,6 +48,11 @@ int main()
     // cout<<ptr[1]<<endl;
     // cout<<ptr[2]<<endl;
     // cout<<ptr[3]<<endl;
-    
+/*****************************************************************************/
+    /*note that s[0]=1 and s[0] and the following lines concatenate the 2 chars
+    1 and 0 into 1 char hh*/
+    // int h1 = s[0] - '0';
+    // int h2 = s[1] - '0';
+    // int hh = h1 * 10 + h2;
     return 0;
 }
