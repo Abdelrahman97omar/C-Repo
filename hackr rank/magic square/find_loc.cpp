@@ -1,7 +1,9 @@
 #include<iostream>
 using namespace std;
-void find_loc(int* magic_results,int* correct_magic_number,int* error_location)
+void find_loc_solve(int* magic_results,int* correct_magic_number,
+                          int* wrong_number,int s[][3],int* cost)
 {
+
     /* The different will be either:
             1- 1 row -- 1 coulmn
             2- 2 row -- 1 coulmn
@@ -19,47 +21,65 @@ void find_loc(int* magic_results,int* correct_magic_number,int* error_location)
         |_  | _ | _|
         | 3 | 5 | 6|
     */
-   int ROWS[3]={1,2,4}; /* for raw 1->00000001 raw 2->00000010 raw 3->00000100 */
-   int Col[3]={1,2,4};  /* for col 1->00000001 col 2->00000010 col 3->00000100 */
-   int Error_location[9];
-   int Error_location_counter=0;
+   int ROWS[3]={1,1,1}; 
+   int Col[3] ={1,1,1}; 
+   int wrong_no_arr_counter=0;
+
     for (int i = 0; i < 6; i++)
     {
-        if(i<3 && (magic_results[i]==*correct_magic_number))
+        if(i<3 && (magic_results[i]== *correct_magic_number))
         {
             ROWS[i]=0;
         }
-        if(i>3 &&(magic_results[i]==*correct_magic_number))
+        if(i>=3 && (magic_results[i]== *correct_magic_number))
         {
-            Col[i]=0;
+            Col[i-3]=0;
         } 
     }
-    /*it will iterate 9 times to find the intersecting rows with coulmns
-        error_location[0]-> for row 1 and coulmn 1
-        error_location[1]-> for row 1 and coulmn 2 
-        error_location[2]-> for row 1 and coulmn 3
-        error_location[3]-> for row 2 and coulmn 1 
-        error_location[4]-> for row 2 and coulmn 2
-        error_location[5]-> for row 2 and coulmn 3 
-        error_location[6]-> for row 3 and coulmn 1
-        error_location[7]-> for row 3 and coulmn 2 
-        error_location[8]-> for row 3 and coulmn 3
-    */
-            cout<<"row"<<ROWS[0]<<endl;
-            cout<<"row"<<ROWS[1]<<endl;
-            cout<<"row"<<ROWS[2]<<endl;
-            cout<<"col "<<Col[0]<<endl; 
-            cout<<"col "<<Col[1]<<endl; 
-            cout<<"col "<<Col[2]<<endl; 
+    
+/*_____________________________________________________________________________________*/
 
+    //note: magic_results{R1,R2,R3,C1,C2,C3}
 
-    for (int i = 0; i < 3; i++)
-    {
-        for(int j=0;j<3;j++)
-        {
-        error_location[Error_location_counter]=ROWS[i]&Col[j];
-        cout<<"error locations "<<error_location[Error_location_counter]<<endl;
-        Error_location_counter++;
-        }
+for (int i = 0; i < 3; i++)
+{
+  int temp=0;
+  int x=0;
+    for(int j=0;j<3;j++)
+        {   
+            temp=ROWS[i]&Col[j];
+            if(temp==1)
+                {
+                if(wrong_number[wrong_no_arr_counter]>*correct_magic_number)
+                    {   
+                    x=wrong_number[wrong_no_arr_counter]-*correct_magic_number;
+                    *cost+=(wrong_number[wrong_no_arr_counter]-*correct_magic_number);
+                    cout<<"number before modefication in first if "<<s[i][j]<<endl;         
+                    s[i][j]-=x; 
+                    cout<<"number after modefication in first if "<<s[i][j]<<endl;
+                    cout<<"x is "<<x<<endl;
+                    cout<<"cost is "<<*cost<<endl;
+                    cout<<"_______________________________________________"<<endl;
+                    temp=0;
+                    
+                    wrong_no_arr_counter++;
+                    }
+                else if(wrong_number[wrong_no_arr_counter]< *correct_magic_number)
+                {
+                    cout<<"wrong number in solve "<<wrong_number[wrong_no_arr_counter]<<endl;
+                    cout<<"correct number in solve "<<*correct_magic_number<<endl;    
+                    x=*correct_magic_number - wrong_number[wrong_no_arr_counter];
+                    *cost+=(*correct_magic_number-wrong_number[wrong_no_arr_counter]);
+                    cout<<"number before modefication in second if "<<s[i][j]<<endl;
+                    s[i][j]+=x;
+                    cout<<"number after modefication in second if "<<s[i][j]<<endl;
+                    cout<<"x is "<<x<<endl;
+                    cout<<"cost is "<<*cost<<endl;
+                    cout<<"_______________________________________________"<<endl;                    temp=0;
+                    wrong_no_arr_counter++;
+                            
+                }
+            }        
+        }            
     } 
 }

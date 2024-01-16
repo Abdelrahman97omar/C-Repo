@@ -22,7 +22,6 @@ void Max_repeted_Wrong_number(int* correct_magic_number,int* Mgc_sqr,int* wrong_
         }
         temp_counter=0;
     } 
-    cout<<"magic number is "<<*correct_magic_number<<endl;
     //now, after i have found the magic number, i have to find wrong numbers
     for (int i = 0; i < 6; i++)
     {
@@ -32,5 +31,8 @@ void Max_repeted_Wrong_number(int* correct_magic_number,int* Mgc_sqr,int* wrong_
             wrong_number_array_counter++;
         }
     }
-       
+    // cout<<"the wrong number: "<<wrong_number[0]<<endl;
+    // cout<<"the wrong number: "<<wrong_number[1]<<endl;
+    // cout<<"the wrong number: "<<wrong_number[2]<<endl;   
+    // cout<<"the correct number is: "<<*correct_magic_number<<endl;
 }
