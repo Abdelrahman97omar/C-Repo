@@ -6,7 +6,14 @@ enum day{a,b,c,d,e};
 
 int main()
 {
+    //i can pass array to function using the following method
+    // int arr[4]={1,2,3,4};
+    // int arr_size=sizeof(arr)/arr[0];
+    // void calculate(int my_arr[],int size_of_array)
+    // to call function
+    // calculate(arr,arr_size);
 
+    /******************************************/
     //add member to day enum
 
     // day f=e;
