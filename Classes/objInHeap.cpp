@@ -12,10 +12,12 @@ int main()
     client Ali;
     client abdo;
  /**********************************************************************************************/   
-    client* ptr;    /*pointer of type client--means if i write ptr++ it will increment no.
+    client* ptr;    /*pointer of type client is created in heap.
+                    which means if i write ptr++ it will increment no.
                     of bytes equal to the size of object from class client*/
-    ptr=new client;     /*create a pointer that save a memory 
-                         in heap for an obect (no name for obj, just memory) */
+   
+    ptr=new client;     /*create a memorey in heap for an obect
+                        and make ptr points to it (no name for obj, just memory) */
     ptr=&abdo;     
 
     ptr->Age=65;
