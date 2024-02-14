@@ -7,8 +7,6 @@ r calculate(t a, r b)
 }
 int main()
 {
-    int z;
-    cout<<calculate(6,7.5)<<endl;
-    
+    cout<<calculate(6,7.5)<<endl;  
 return 0;
 }
